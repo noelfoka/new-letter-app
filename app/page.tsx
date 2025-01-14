@@ -1,8 +1,10 @@
-// import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 
 export default function Home() {
 
-  const [email, setEmail] = React.useState("");
+  const [email, setEmail] = useState("");
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
