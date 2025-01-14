@@ -7,16 +7,24 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [isloading, setIsloading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // fonction de verification si l'ajout de l'email est fini ou en cours
     setIsloading(true);
 
     try {
-      
+      // appel de l'api
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
     } catch (error) {
-      
+      console.log(error);
     }
 
   }
