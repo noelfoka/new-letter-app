@@ -6,6 +6,15 @@ export default function Home() {
 
   const [email, setEmail] = useState("");
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(email);
+  };
+
+  // useEffect(() => {
+  //   setEmail("");
+  // })
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       {/* Toas */}
@@ -19,13 +28,15 @@ export default function Home() {
             <p className="my-4 text-sm">
               Recevez des nouvelles et des conseils pour améliorer votre projet
             </p>
-            <form className="flex items-center w-full">
+            <form className="flex items-center w-full" onSubmit={handleSubmit}>
               <input
                 type="text"
                 className="input input-bordered w-full"
                 placeholder="email@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <button className="btn btn-primary ml-3">S&apos;abonner</button>
+              <button className="btn btn-primary ml-3" type="submit">S&apos;abonner</button>
             </form>
             <p className="text-xs mt-2">Pas de spam, pas de publicité, pas de newsletters inutiles</p>
           </div>
