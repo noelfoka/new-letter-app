@@ -1,11 +1,14 @@
 // import Image from "next/image";
 
 export default function Home() {
+
+  const [email, setEmail] = React.useState("");
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       {/* Toas */}
-      <div className="flex items-center mb-6 md:w-[600px]">
-        <div className="flex flex-col items-center w-full">
+      <div className="flex items-center m-6 md:w-[600px] bg-base-200 rounded-3xl">
+        <div className="flex flex-col items-center w-full p-2 pb-5">
           <div className="h-[200px] bg-[url('/banner.png')] w-full bg-cover bg-center rounded-3xl mb-6"></div>
           <div className="w-fullp-10 pt-0">
             <h1 className="text-2xl md:text-4xl font-bold text-white">
@@ -22,7 +25,7 @@ export default function Home() {
               />
               <button className="btn btn-primary ml-3">S&apos;abonner</button>
             </form>
-            <p>Pas de spam, pas de publicité, pas de newsletters inutiles</p>
+            <p className="text-xs mt-2">Pas de spam, pas de publicité, pas de newsletters inutiles</p>
           </div>
         </div>
       </div>
