@@ -23,6 +23,12 @@ export default function Home() {
         body: JSON.stringify({ email }),
       });
 
+      // Vérifier si la requete a réussi
+      if (response.ok) {
+        // Recuperer les données de la réponse
+        const data = await response.json();
+      }
+
     } catch (error) {
       console.log(error);
     }
