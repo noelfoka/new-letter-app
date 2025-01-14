@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function Home() {
 
@@ -24,12 +25,19 @@ export default function Home() {
       });
 
       // Vérifier si la requete a réussi
+      // Recuperer les données de la réponse
+      const data = await response.json();
       if (response.ok) {
-        // Recuperer les données de la réponse
-        const data = await response.json();
+        toast.success(data.message || "L'email a bien été inscrite");
+        setEmail("");
+      } else {
+        toast.error(data.error || "Une erreur est survenue");
       }
 
+      setIsloading(false);
+
     } catch (error) {
+      toast.error( "Une erreur est survenue");
       console.log(error);
     }
 
@@ -38,6 +46,15 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       {/* Toas */}
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+      />
+
       <div className="flex items-center m-6 md:w-[600px] bg-base-200 rounded-3xl">
         <div className="flex flex-col items-center w-full p-2 pb-5">
           <div className="h-[200px] bg-[url('/banner.png')] w-full bg-cover bg-center rounded-3xl mb-6"></div>
