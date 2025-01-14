@@ -16,7 +16,10 @@ export async function POST(request: Request) {
 
     // Vérification si l'email contient une adresse mail
     if (!email) {
-      return NextResponse.json({ error: "Email manquant" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Email manquant et est obligatoire" },
+        { status: 400 }
+      );
     }
   } catch (error) {
     return NextResponse.json(
