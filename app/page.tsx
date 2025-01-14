@@ -2,8 +2,9 @@
 
 export default function Home() {
   return (
-    <div>
-      <h1>New Letter</h1>
+    <div className="flex flex-col items-center justify-center h-screen">
+      {/* Toas */}
+      <div className="flex items-center mb-6"></div>
     </div>
   );
 }
