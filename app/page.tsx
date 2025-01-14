@@ -5,15 +5,21 @@ import { useState } from "react";
 export default function Home() {
 
   const [email, setEmail] = useState("");
+  const [isloading, setIsloading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(email);
-  };
+    
+    // fonction de verification si l'ajout de l'email est fini ou en cours
+    setIsloading(true);
 
-  // useEffect(() => {
-  //   setEmail("");
-  // })
+    try {
+      
+    } catch (error) {
+      
+    }
+
+  }
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
@@ -30,7 +36,7 @@ export default function Home() {
             </p>
             <form className="flex items-center w-full" onSubmit={handleSubmit}>
               <input
-                type="text"
+                type="email"
                 className="input input-bordered w-full"
                 placeholder="email@example.com"
                 value={email}
